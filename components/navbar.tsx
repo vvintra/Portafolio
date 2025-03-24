@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { MoonIcon, SunIcon, MenuIcon, XIcon } from "lucide-react"
+import { MoonIcon, SunIcon, MenuIcon, XIcon } from 'lucide-react'
 import { useTheme } from "next-themes"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -12,9 +12,15 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [basePath, setBasePath] = useState("")
 
   useEffect(() => {
     setMounted(true)
+
+    // Detectar si estamos en entorno de producción para ajustar el basePath
+    if (process.env.NODE_ENV === 'production') {
+      setBasePath('/Miira-web-portfolio')
+    }
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 10)
@@ -50,7 +56,7 @@ export default function Navbar() {
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold uppercase tracking-wider">
+        <Link href={`${basePath}/`} className="text-xl font-bold uppercase tracking-wider">
           <span className="text-primary">L</span>
           <span className="text-secondary">A</span>
         </Link>
