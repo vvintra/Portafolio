@@ -1,19 +1,8 @@
-"use client"
-
 import { HeartIcon } from "lucide-react"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-  const [basePath, setBasePath] = useState("")
-
-  useEffect(() => {
-    // Detectar si estamos en entorno de producción para ajustar el basePath
-    if (process.env.NODE_ENV === "production") {
-      setBasePath("/Miira-web-portfolio")
-    }
-  }, [])
 
   return (
     <footer className="bg-muted/30 py-12 border-t border-border/20">
@@ -41,8 +30,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#salesian" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Salesiano
+                <Link
+                  href="#martial-arts"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Artes Marciales
                 </Link>
               </li>
               <li>
