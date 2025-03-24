@@ -1,21 +1,48 @@
+let userConfig = undefined
+try {
+  userConfig = await import('./v0-user-next.config')
+} catch (e) {
+  // ignore error
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configuración para GitHub Pages
-  output: 'export',  // Genera archivos estáticos
-  // Establece el path base para GitHub Pages
-  basePath: process.env.NODE_ENV === 'production' ? '/Miira-web-portfolio' : '',
-  // Deshabilita la optimización de imágenes para exportación estática
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     unoptimized: true,
   },
-  // Permite usar imágenes externas
-  images: {
-    domains: ['hebbkx1anhila5yf.public.blob.vercel-storage.com', 'v0.blob.com'],
-    unoptimized: true,
+  experimental: {
+    webpackBuildWorker: true,
+    parallelServerBuildTraces: true,
+    parallelServerCompiles: true,
   },
-  // GitHub Pages no soporta rutas sin extensión, así que cambiamos esto
-  trailingSlash: true,
-};
+}
 
-export default nextConfig;
+mergeConfig(nextConfig, userConfig)
 
+function mergeConfig(nextConfig, userConfig) {
+  if (!userConfig) {
+    return
+  }
+
+  for (const key in userConfig) {
+    if (
+      typeof nextConfig[key] === 'object' &&
+      !Array.isArray(nextConfig[key])
+    ) {
+      nextConfig[key] = {
+        ...nextConfig[key],
+        ...userConfig[key],
+      }
+    } else {
+      nextConfig[key] = userConfig[key]
+    }
+  }
+}
+
+export default nextConfig

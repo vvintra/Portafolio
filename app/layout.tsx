@@ -2,8 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { IBM_Plex_Sans, IBM_Plex_Serif, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
-import Navbar from "@/components/navbar"
-import { ThemeProvider } from "@/components/theme-provider"
+import Navbar from "./navbar"
 
 const ibmPlexSans = IBM_Plex_Sans({
   weight: ["400", "500", "600", "700"],
@@ -26,6 +25,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Mi Portafolio | Estudiante de Ingeniería y Misionero Salesiano",
   description: "Portafolio personal de un estudiante de ingeniería en computación, catequista y misionero salesiano",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -36,12 +36,13 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={`${ibmPlexSans.variable} ${ibmPlexSerif.variable} ${ibmPlexMono.variable} font-sans relative`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <Navbar />
-          {children}
-        </ThemeProvider>
+        <Navbar />
+        {children}
       </body>
     </html>
   )
 }
 
+
+
+import './globals.css'

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { MoonIcon, SunIcon, MenuIcon, XIcon } from 'lucide-react'
+import { Button } from "./ui/button"
+import { MoonIcon, SunIcon, MenuIcon, XIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -18,8 +18,8 @@ export default function Navbar() {
     setMounted(true)
 
     // Detectar si estamos en entorno de producción para ajustar el basePath
-    if (process.env.NODE_ENV === 'production') {
-      setBasePath('/Miira-web-portfolio')
+    if (process.env.NODE_ENV === "production") {
+      setBasePath("/Miira-web-portfolio")
     }
 
     const handleScroll = () => {
