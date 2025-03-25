@@ -27,7 +27,7 @@ const nextConfig = {
     scrollRestoration: true,
   },
   // Descomenta y modifica la siguiente línea si tu repositorio no se llama username.github.io
-  // basePath: '/Portafolio',
+  basePath: '/Portafolio',
 };
 
 export default nextConfig;
