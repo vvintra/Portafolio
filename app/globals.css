@@ -99,6 +99,14 @@
   pre {
     @apply font-mono;
   }
+
+  /* Optimización para dispositivos de bajo rendimiento */
+  .reduce-animations * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @layer components {
@@ -109,35 +117,41 @@
   }
 
   .bauhaus-shape {
-    @apply absolute rounded-none bg-primary/80;
+    @apply absolute rounded-none bg-primary/60;
     z-index: -1;
+    will-change: transform, opacity;
   }
 
   .bauhaus-shape-alt {
-    @apply absolute rounded-none bg-primary/50;
+    @apply absolute rounded-none bg-primary/40;
     z-index: -1;
+    will-change: transform, opacity;
   }
 
   .bauhaus-circle {
-    @apply absolute rounded-full bg-secondary/80;
+    @apply absolute rounded-full bg-secondary/60;
     z-index: -1;
+    will-change: transform, opacity;
   }
 
   .bauhaus-circle-alt {
-    @apply absolute rounded-full bg-secondary/50;
+    @apply absolute rounded-full bg-secondary/40;
     z-index: -1;
+    will-change: transform, opacity;
   }
 
   .bauhaus-triangle {
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    @apply absolute bg-tertiary/80;
+    @apply absolute bg-tertiary/60;
     z-index: -1;
+    will-change: transform, opacity;
   }
 
   .bauhaus-triangle-alt {
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    @apply absolute bg-tertiary/50;
+    @apply absolute bg-tertiary/40;
     z-index: -1;
+    will-change: transform, opacity;
   }
 
   .section-with-shapes {
@@ -240,6 +254,28 @@
   .bauhaus-section::after {
     content: "";
     @apply absolute bottom-0 right-0 w-4 h-4 bg-secondary;
+  }
+}
+
+/* Optimizaciones para mejorar el rendimiento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimizaciones para dispositivos móviles */
+@media (max-width: 768px) {
+  .bauhaus-shape,
+  .bauhaus-shape-alt,
+  .bauhaus-circle,
+  .bauhaus-circle-alt,
+  .bauhaus-triangle,
+  .bauhaus-triangle-alt {
+    opacity: 0.3 !important;
   }
 }
 

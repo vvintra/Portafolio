@@ -1,20 +1,29 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configuración para GitHub Pages
-  output: 'export',  // Genera archivos estáticos
-  // Establece el path base para GitHub Pages
-  basePath: process.env.NODE_ENV === 'production' ? '/Miira-web-portfolio' : '',
-  // Deshabilita la optimización de imágenes para exportación estática
+  reactStrictMode: true,
   images: {
-    unoptimized: true,
+    domains: [
+      'v0.blob.com',
+      'hebbkx1anhila5yf.public.blob.vercel-storage.com',
+      'vercel-storage.com',
+      'public.blob.vercel-storage.com'
+    ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
-  // Permite usar imágenes externas
-  images: {
-    domains: ['hebbkx1anhila5yf.public.blob.vercel-storage.com', 'v0.blob.com'],
-    unoptimized: true,
+  // Optimiza el rendimiento en producción
+  swcMinify: true,
+  // Mejora la compatibilidad con diferentes navegadores
+  transpilePackages: ['framer-motion', 'react-type-animation'],
+  // Configuración para mejorar el rendimiento de las imágenes
+  experimental: {
+    optimizeCss: true,
+    scrollRestoration: true,
   },
-  // GitHub Pages no soporta rutas sin extensión, así que cambiamos esto
-  trailingSlash: true,
 };
 
 export default nextConfig;

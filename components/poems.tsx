@@ -4,8 +4,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BookOpenIcon, HeartIcon, StarIcon, SunIcon, MapIcon } from "lucide-react"
 import BackgroundShapes from "@/components/background-shapes"
+import { useState } from "react"
 
 export default function Poems() {
+  // Estado para controlar el poema activo
+  const [activePoem, setActivePoem] = useState("luz")
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -208,11 +212,16 @@ export default function Poems() {
     },
   ]
 
+  // Manejador para cambiar de poema
+  const handlePoemChange = (value: string) => {
+    setActivePoem(value)
+  }
+
   return (
     <section id="poems" className="py-20 bg-muted/30 section-with-shapes">
       <BackgroundShapes intensity="low" colorScheme="tertiary" />
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -227,8 +236,8 @@ export default function Poems() {
           </p>
         </motion.div>
 
-        <Tabs defaultValue="luz" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-8">
+        <Tabs defaultValue="luz" value={activePoem} onValueChange={handlePoemChange} className="w-full">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-8 relative z-20">
             {poems.map((poem) => (
               <TabsTrigger key={poem.id} value={poem.id} className="flex items-center gap-2">
                 {poem.icon}
