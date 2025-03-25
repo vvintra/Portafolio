@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',  // Necesario para GitHub Pages
   images: {
+    unoptimized: true,  // Requerido para exportación estática
     domains: [
       'v0.blob.com',
       'hebbkx1anhila5yf.public.blob.vercel-storage.com',
@@ -24,6 +26,8 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
+  // Descomenta y modifica la siguiente línea si tu repositorio no se llama username.github.io
+  // basePath: '/Portafolio',
 };
 
 export default nextConfig;
