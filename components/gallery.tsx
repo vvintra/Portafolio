@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { ChevronLeftIcon, ChevronRightIcon, XIcon } from "lucide-react"
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 import Image from "next/image"
 import BackgroundShapes from "@/components/background-shapes"
 
@@ -74,6 +74,16 @@ export default function Gallery() {
     }
   }
 
+  useEffect(() => {
+    if (selectedImage === null) return
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") setSelectedImage(current => current === null ? null : (current + images.length - 1) % images.length)
+      if (event.key === "ArrowRight") setSelectedImage(current => current === null ? null : (current + 1) % images.length)
+    }
+    window.addEventListener("keydown", handleKey)
+    return () => window.removeEventListener("keydown", handleKey)
+  }, [selectedImage, images.length])
+
   return (
     <section id="gallery" className="py-20 bg-muted/50 section-with-shapes">
       <BackgroundShapes intensity="low" colorScheme="mixed" />
@@ -95,76 +105,74 @@ export default function Gallery() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {images.map((image, index) => (
-            <Dialog key={index}>
-              <DialogTrigger asChild>
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  variants={fadeIn}
-                  className="cursor-pointer"
-                  onClick={() => setSelectedImage(index)}
-                >
-                  <Card className="overflow-hidden group h-64">
-                    <div className="relative h-full w-full">
-                      <Image
-                        src={image.src || "/placeholder.svg"}
-                        alt={image.alt}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105 duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-end p-4">
-                        <span className="text-white font-medium text-center">{image.alt}</span>
-                        <span className="text-white/80 text-sm mt-1 px-2 py-0.5 rounded-full bg-primary/50 backdrop-blur-sm">
-                          {image.category}
-                        </span>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              </DialogTrigger>
-              <DialogContent className="max-w-4xl p-0 bg-transparent border-none">
+            <motion.button
+              key={image.src}
+              type="button"
+              aria-label={`Ampliar: ${image.alt}`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              variants={fadeIn}
+              className="cursor-pointer text-left"
+              onClick={() => setSelectedImage(index)}
+            >
+              <Card className="overflow-hidden group h-64">
+                <div className="relative h-full w-full">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                    className="object-cover transition-transform group-hover:scale-105 duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-end p-4">
+                    <span className="text-white font-medium text-center">{image.alt}</span>
+                    <span className="text-white/80 text-sm mt-1 px-2 py-0.5 rounded-full bg-primary/50 backdrop-blur-sm">{image.category}</span>
+                  </div>
+                </div>
+              </Card>
+            </motion.button>
+          ))}
+        </div>
+        <Dialog open={selectedImage !== null} onOpenChange={open => { if (!open) setSelectedImage(null) }}>
+          <DialogContent className="max-w-4xl border-border bg-background p-4">
+            {selectedImage !== null && (
+              <>
+                <DialogTitle className="pr-8">{images[selectedImage].alt}</DialogTitle>
+                <DialogDescription>{images[selectedImage].category} · Foto {selectedImage + 1} de {images.length}. Usá las flechas para navegar.</DialogDescription>
                 <div className="relative">
-                  <button
-                    className="absolute top-2 right-2 bg-black/60 text-white p-2 rounded-full z-10"
-                    onClick={() => setSelectedImage(null)}
-                  >
-                    <XIcon className="h-5 w-5" />
-                  </button>
                   <div className="relative h-[70vh] w-full">
                     <Image
-                      src={image.src || "/placeholder.svg"}
-                      alt={image.alt}
+                      src={images[selectedImage].src}
+                      alt={images[selectedImage].alt}
                       fill
                       className="object-contain"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                     />
                   </div>
-                  <div className="absolute bottom-4 left-0 right-0 text-center">
-                    <p className="text-white bg-black/60 inline-block px-4 py-2 rounded-lg backdrop-blur-sm">
-                      {image.alt}
-                    </p>
-                  </div>
                   <button
+                    type="button"
+                    aria-label="Foto anterior"
                     className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full"
                     onClick={() => navigateImage("prev")}
                   >
                     <ChevronLeftIcon className="h-6 w-6" />
                   </button>
                   <button
+                    type="button"
+                    aria-label="Foto siguiente"
                     className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full"
                     onClick={() => navigateImage("next")}
                   >
                     <ChevronRightIcon className="h-6 w-6" />
                   </button>
                 </div>
-              </DialogContent>
-            </Dialog>
-          ))}
-        </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   )
 }
-

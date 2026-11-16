@@ -31,18 +31,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#martial-arts"
+                  href="#projects"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Artes Marciales
+                  Proyectos
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#certificates"
+                  href="#engineering"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Certificaciones
+                  Grupo de Ingeniería
                 </Link>
               </li>
               <li>
@@ -58,6 +58,7 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a
                 href="https://github.com/vvintra"
+                aria-label="GitHub de Lucas Arroyo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-card/50 p-2 rounded-full hover:bg-primary/20 transition-colors"
@@ -68,6 +69,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://x.com/VintraScrip"
+                aria-label="Perfil de Lucas Arroyo en X"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-card/50 p-2 rounded-full hover:bg-primary/20 transition-colors"
@@ -78,6 +80,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://www.instagram.com/_lucasarroyo/"
+                aria-label="Instagram de Lucas Arroyo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-card/50 p-2 rounded-full hover:bg-primary/20 transition-colors"
@@ -90,8 +93,8 @@ export default function Footer() {
 
             <div className="mt-6">
               <h3 className="text-lg font-semibold mb-2">Contacto</h3>
-              <p className="text-sm text-muted-foreground">lucaslisandroarroyo02@gmail.com</p>
-              <p className="text-sm text-muted-foreground">+54 3914064164</p>
+              <a href="mailto:lucaslisandroarroyo02@gmail.com" className="block break-all text-sm text-muted-foreground hover:text-primary">lucaslisandroarroyo02@gmail.com</a>
+              <a href="tel:+543814064164" className="block text-sm text-muted-foreground hover:text-primary">+54 381 406-4164</a>
             </div>
           </div>
         </div>
@@ -110,4 +113,3 @@ export default function Footer() {
     </footer>
   )
 }
-

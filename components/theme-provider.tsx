@@ -2,20 +2,10 @@
 
 import type * as React from "react"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
+import { MotionConfig } from "framer-motion"
 
-// Definir el tipo de props manualmente ya que ThemeProviderProps no está exportado
-interface ThemeProviderProps {
-  children: React.ReactNode
-  attribute?: string
-  defaultTheme?: string
-  enableSystem?: boolean
-  disableTransitionOnChange?: boolean
-  storageKey?: string
-  themes?: string[]
-  forcedTheme?: string
-}
+type ThemeProviderProps = React.ComponentProps<typeof NextThemesProvider>
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+  return <NextThemesProvider {...props}><MotionConfig reducedMotion="user">{children}</MotionConfig></NextThemesProvider>
 }
-

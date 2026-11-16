@@ -237,11 +237,11 @@ export default function Poems() {
         </motion.div>
 
         <Tabs defaultValue="luz" value={activePoem} onValueChange={handlePoemChange} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-8 relative z-20">
+          <TabsList className="grid h-auto w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-1 mb-8 relative z-20">
             {poems.map((poem) => (
-              <TabsTrigger key={poem.id} value={poem.id} className="flex items-center gap-2">
+              <TabsTrigger key={poem.id} value={poem.id} className="flex items-center gap-2 whitespace-normal py-3">
                 {poem.icon}
-                <span className="hidden md:inline">{poem.title}</span>
+                <span>{poem.title}</span>
               </TabsTrigger>
             ))}
           </TabsList>
@@ -271,4 +271,3 @@ export default function Poems() {
     </section>
   )
 }
-

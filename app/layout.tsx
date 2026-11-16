@@ -4,72 +4,32 @@ import { IBM_Plex_Sans, IBM_Plex_Serif, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
-import Script from "next/script"
+import { siteUrl } from "@/lib/site"
 
-// Optimizar la carga de fuentes
-const ibmPlexSans = IBM_Plex_Sans({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-ibm-plex-sans",
-  display: "swap", // Mejora la carga de fuentes
-})
-
-const ibmPlexSerif = IBM_Plex_Serif({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-ibm-plex-serif",
-  display: "swap",
-})
-
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["400", "500"],
-  subsets: ["latin"],
-  variable: "--font-ibm-plex-mono",
-  display: "swap",
-})
+const sans = IBM_Plex_Sans({ weight: ["400", "500", "600", "700"], subsets: ["latin"], variable: "--font-ibm-plex-sans", display: "swap" })
+const serif = IBM_Plex_Serif({ weight: ["400", "500", "600"], subsets: ["latin"], variable: "--font-ibm-plex-serif", display: "swap" })
+const mono = IBM_Plex_Mono({ weight: ["400", "500"], subsets: ["latin"], variable: "--font-ibm-plex-mono", display: "swap" })
 
 export const metadata: Metadata = {
-  title: "Mi Portafolio | Estudiante de Ingeniería y Misionero Salesiano",
-  description: "Portafolio personal de un estudiante de ingeniería en computación, catequista y misionero salesiano",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-    generator: 'v0.dev'
+  metadataBase: new URL(siteUrl),
+  title: "Lucas Lisandro Arroyo | Desarrollo, Ingeniería y Comunidad",
+  description: "Soy Lucas Arroyo, desarrollador y estudiante de Ingeniería en Computación en FACET. Conocé mis proyectos de software, mi formación y mi compromiso salesiano.",
+  authors: [{ name: "Lucas Lisandro Arroyo", url: "https://github.com/vvintra" }],
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", locale: "es_AR", siteName: "Lucas Arroyo", title: "Lucas Arroyo — Software con propósito", description: "Desarrollo, ingeniería y comunidad. Ideas que se convierten en proyectos reales.", url: "/" },
+  twitter: { card: "summary_large_image", title: "Lucas Arroyo — Software con propósito", description: "Desarrollo, ingeniería y comunidad. Conocé mis proyectos." },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className={`${ibmPlexSans.variable} ${ibmPlexSerif.variable} ${ibmPlexMono.variable} font-sans relative`}>
+    <html lang="es-AR" suppressHydrationWarning>
+      <body className={`${sans.variable} ${serif.variable} ${mono.variable} relative font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <a href="#main-content" className="fixed left-4 top-4 z-[100] -translate-y-24 bg-foreground px-5 py-3 text-background focus:translate-y-0">Saltar al contenido</a>
           <Navbar />
           {children}
-
-          {/* Script para mejorar el rendimiento de las animaciones */}
-          <Script id="animation-performance">
-            {`
-              // Detectar dispositivos de bajo rendimiento
-              const isLowPerformanceDevice = () => {
-                return (
-                  navigator.deviceMemory < 4 || // Menos de 4GB de RAM
-                  navigator.hardwareConcurrency < 4 // Menos de 4 núcleos
-                );
-              };
-              
-              // Aplicar clase al body para ajustar animaciones si es necesario
-              if (typeof navigator !== 'undefined' && isLowPerformanceDevice()) {
-                document.body.classList.add('reduce-animations');
-              }
-            `}
-          </Script>
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-
-
-import './globals.css'

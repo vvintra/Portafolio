@@ -46,7 +46,7 @@ export default function About() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2 uppercase">Ingeniero en Formación</h3>
                 <p className="text-muted-foreground font-mono">
-                  Estudiante de 4º año de Ingeniería en Computación en FACET, con pasión por la tecnología y la
+                  Estudiante de Ingeniería en Computación en FACET, con pasión por la tecnología y la
                   innovación.
                 </p>
               </CardContent>
@@ -117,4 +117,3 @@ export default function About() {
     </section>
   )
 }
-
