@@ -11,8 +11,8 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 gradient-heading">Lucas Arroyo</h3>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Estudiante de Ingeniería en Computación, Catequista y Misionero Salesiano, apasionado por las artes
-              marciales y el desarrollo tecnológico.
+              Estudiante de Ingeniería en Computación (FACET, UNT), desarrollador full stack y fundador de{" "}
+              <a href="https://sizoft.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Sizoft</a>.
             </p>
           </div>
 
@@ -39,10 +39,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#engineering"
+                  href="#certificates"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Grupo de Ingeniería
+                  Certificaciones
                 </Link>
               </li>
               <li>

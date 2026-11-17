@@ -9,8 +9,8 @@ const navItems = [
   { name: "Sobre mí", href: "#about" },
   { name: "Proyectos", href: "#projects" },
   { name: "Formación", href: "#education" },
-  { name: "Comunidad", href: "#salesian" },
-  { name: "Poemas", href: "#poems" },
+  { name: "Trayectoria", href: "#trajectory" },
+  { name: "Certificaciones", href: "#certificates" },
   { name: "Galería", href: "#gallery" },
 ]
 
@@ -54,7 +54,7 @@ export default function Navbar() {
         </div>
       </nav>
       {isMenuOpen && <nav id="mobile-navigation" aria-label="Navegación móvil" className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-border bg-background px-6 py-4 lg:hidden">
-        {[...navItems, { name: "Grupo de Ingeniería", href: "#engineering" }, { name: "Contacto", href: "#contact" }].map(item => <a key={item.href} href={item.href} onClick={() => setIsMenuOpen(false)} className="block border-b border-border py-3 text-lg hover:text-primary">{item.name}</a>)}
+        {[...navItems, { name: "Contacto", href: "#contact" }].map(item => <a key={item.href} href={item.href} onClick={() => setIsMenuOpen(false)} className="block border-b border-border py-3 text-lg hover:text-primary">{item.name}</a>)}
       </nav>}
     </header>
   )

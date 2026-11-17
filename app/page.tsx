@@ -1,11 +1,10 @@
 import Hero from "@/components/hero"
 import About from "@/components/about"
-import Education from "@/components/education"
-import SalesianWork from "@/components/salesian-work"
-import EngineeringGroup from "@/components/engineering-group"
 import Projects from "@/components/projects"
+import Education from "@/components/education"
+import Trajectory from "@/components/trajectory"
+import Certificates from "@/components/certificates"
 import Gallery from "@/components/gallery"
-import Poems from "@/components/poems"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 
@@ -17,9 +16,8 @@ export default function Home() {
         <About />
         <Projects />
         <Education />
-        <SalesianWork />
-        <EngineeringGroup />
-        <Poems />
+        <Trajectory />
+        <Certificates />
         <Gallery />
         <Contact />
       </main>

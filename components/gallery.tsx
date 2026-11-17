@@ -23,29 +23,14 @@ export default function Gallery() {
       category: "Artes Marciales",
     },
     {
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-03-24%20at%2002.03.34%20%282%29-aWles5TGWxPTUcC4NJq81j4Vuod04Z.jpeg",
-      alt: "Amigos del grupo de ingeniería",
-      category: "Ingeniería",
-    },
-    {
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-03-24%20at%2002.03.34%20%283%29-8cIp5wxbfMyAlwbArX7LXLAY8btR1F.jpeg",
-      alt: "Celebración con compañeros de la universidad",
-      category: "Social",
-    },
-    {
       src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LorS8sf0dhHrt0AVwDc5CFdSdRTzUa.png",
       alt: "Grupo de voluntarios en actividad comunitaria",
       category: "Misiones",
     },
     {
       src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-03-24%20at%2002.03.34%20%286%29-kVopSGnqvif1aDg9eDjUOVlzlaYPaD.jpeg",
-      alt: "Panel de debate en modelo de Naciones Unidas",
-      category: "Modelos de ONU",
-    },
-    {
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-03-24%20at%2002.03.34%20%284%29-2u0Ixg81auO1SQosv8bsxljKJdGQzm.jpeg",
-      alt: "Actividad misionera salesiana",
-      category: "Salesiano",
+      alt: "Panel de debate en un Modelo de Naciones Unidas",
+      category: "Uniendo Metas",
     },
     {
       src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ef9a59ac-1622-402b-815f-5e531ed1dd12.jpg-3Siru3vetLxHnnNDPCNpc2KW85kLSv.jpeg",
@@ -99,7 +84,7 @@ export default function Gallery() {
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-heading">Galería</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Momentos capturados durante misiones, competiciones, actividades académicas y viajes
+            Misiones, Modelos de Naciones Unidas, actividades académicas y Brazilian Jiu-Jitsu
           </p>
         </motion.div>
 

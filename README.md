@@ -30,7 +30,7 @@ Vercel compila con la configuración predeterminada de Next.js. GitHub Actions g
 
 ## Funciones
 
-- Proyectos con enlaces públicos, galería navegable con botones y teclado, y poemas con pestañas.
+- Proyectos con enlaces públicos (Sizoft, tumostrador, ortografin), trayectoria, certificaciones y galería navegable con botones y teclado.
 - Tema claro/oscuro y navegación adaptable a celulares.
 - Formulario de contacto que prepara un borrador en la aplicación de correo del visitante. El visitante debe enviarlo desde allí; no requiere un servicio de correo externo.
 - Metadatos para compartir, imagen Open Graph, favicon, robots y sitemap.

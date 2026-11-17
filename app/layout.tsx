@@ -13,7 +13,7 @@ const mono = IBM_Plex_Mono({ weight: ["400", "500"], subsets: ["latin"], variabl
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Lucas Lisandro Arroyo | Desarrollo, Ingeniería y Comunidad",
-  description: "Soy Lucas Arroyo, desarrollador y estudiante de Ingeniería en Computación en FACET. Conocé mis proyectos de software, mi formación y mi compromiso salesiano.",
+  description: "Soy Lucas Arroyo, desarrollador y estudiante de Ingeniería en Computación en FACET. Fundador de Sizoft. Conocé mis proyectos de software, mi formación, mi trayectoria y mis certificaciones.",
   authors: [{ name: "Lucas Lisandro Arroyo", url: "https://github.com/vvintra" }],
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "es_AR", siteName: "Lucas Arroyo", title: "Lucas Arroyo — Software con propósito", description: "Desarrollo, ingeniería y comunidad. Ideas que se convierten en proyectos reales.", url: "/" },

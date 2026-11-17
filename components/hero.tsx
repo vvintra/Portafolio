@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Code2, Heart, Users } from "lucide-react"
+import { ArrowDown, ArrowUpRight, Building2, Code2, Landmark } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Hero() {
@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="grid items-center gap-14 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
           <div>
             <p className="mb-7 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              <span className="h-2 w-2 bg-primary" /> Desarrollo · Ingeniería · Comunidad
+              <span className="h-2 w-2 bg-primary" /> Desarrollo · Ingeniería · Inteligencia artificial
             </p>
             <h1 className="font-sans text-[clamp(3.5rem,8vw,7rem)] font-semibold leading-[0.95] tracking-[-0.065em]">
               Lucas<br />Lisandro<br /><span className="text-primary">Arroyo.</span>
@@ -36,9 +36,9 @@ export default function Hero() {
 
         <div className="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-border pt-6 md:mt-20">
           <div className="flex flex-wrap gap-5 text-sm text-muted-foreground md:gap-8">
-            <span className="flex items-center gap-2"><Code2 className="h-4 w-4 text-primary" /> Desarrollador</span>
-            <span className="flex items-center gap-2"><Heart className="h-4 w-4 text-primary" /> Misionero salesiano</span>
-            <span className="flex items-center gap-2"><Users className="h-4 w-4 text-primary" /> Comunidad</span>
+            <span className="flex items-center gap-2"><Code2 className="h-4 w-4 text-primary" /> Desarrollador full stack</span>
+            <span className="flex items-center gap-2"><Building2 className="h-4 w-4 text-primary" /> Fundador de Sizoft</span>
+            <span className="flex items-center gap-2"><Landmark className="h-4 w-4 text-primary" /> Centro de Estudiantes FACET</span>
           </div>
           <a href="#about" className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider hover:text-primary">Conocé mi historia <ArrowDown className="h-4 w-4" /></a>
         </div>
