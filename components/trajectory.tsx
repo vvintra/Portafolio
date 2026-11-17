@@ -7,6 +7,13 @@ const entries = [
     text: "Desarrollo y opero tumostrador, un ERP con facturación electrónica ARCA, y sistemas a medida para clientes: un ERP de escritorio para un lubricentro, un ERP para un corralón de materiales y una tienda online. Me ocupo del ciclo completo, desde el relevamiento hasta el despliegue y el soporte.",
   },
   {
+    period: "2025 – 2026",
+    category: "Experiencia · Emprendimiento propio",
+    title: "Técnico en reparación y soporte",
+    org: "Servicio técnico informático",
+    text: "Reparación y mantenimiento de computadoras, instalación y configuración de impresoras, e instalación de Windows y Microsoft Office. Conseguía los clientes por Facebook Marketplace y me encargaba de todo: publicaciones, presupuestos, entregas y seguimiento. Fue el antecedente de Sizoft.",
+  },
+  {
     period: "2024 – 2025",
     category: "Experiencia",
     title: "Cajero (fines de semana)",

@@ -23,11 +23,6 @@ export default function Gallery() {
       category: "Artes Marciales",
     },
     {
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LorS8sf0dhHrt0AVwDc5CFdSdRTzUa.png",
-      alt: "Grupo de voluntarios en actividad comunitaria",
-      category: "Misiones",
-    },
-    {
       src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-03-24%20at%2002.03.34%20%286%29-kVopSGnqvif1aDg9eDjUOVlzlaYPaD.jpeg",
       alt: "Panel de debate en un Modelo de Naciones Unidas",
       category: "Uniendo Metas",
