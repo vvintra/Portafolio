@@ -31,7 +31,7 @@ const featured: Cert = {
   id: "itba",
   title: "Certificación Avanzada en Full Stack Developer",
   issuer: "ITBA · Escuela de Innovación",
-  date: "Diciembre 2024",
+  date: "Beca 2022",
   hours: "306 horas",
   scholarship: "Beca Santander Open Academy",
   description: "Programa intensivo del Instituto Tecnológico de Buenos Aires sobre desarrollo web de punta a punta: front-end, back-end, bases de datos, APIs y despliegue. Accedí con una plaza otorgada por Santander Open Academy.",
@@ -42,7 +42,7 @@ const scholarshipLetter: Cert = {
   id: "santander",
   title: "Plaza otorgada · Programa Full Stack Developer – ITBA",
   issuer: "Santander Open Academy",
-  date: "2024",
+  date: "2022",
   description: "Beca de Santander Open Academy para cursar el programa del ITBA.",
   image: santander,
 }
@@ -245,7 +245,7 @@ export default function Certificates() {
             <p className="mb-8 leading-relaxed text-muted-foreground">{featured.description}</p>
             <div className="mb-8 grid grid-cols-3 border-y border-border">
               <div className="border-r border-border py-4 pr-4"><p className="text-3xl font-semibold">306</p><p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">horas</p></div>
-              <div className="border-r border-border px-4 py-4"><p className="text-3xl font-semibold">2024</p><p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">diciembre</p></div>
+              <div className="border-r border-border px-4 py-4"><p className="text-3xl font-semibold">2022</p><p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">beca Santander</p></div>
               <div className="px-4 py-4"><p className="text-3xl font-semibold">ITBA</p><p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Buenos Aires</p></div>
             </div>
             <button type="button" onClick={() => openById("itba")} className="flex items-center gap-2 border-b border-foreground pb-1 text-sm hover:text-primary">Ver certificado completo <ArrowUpRight className="h-4 w-4" /></button>
